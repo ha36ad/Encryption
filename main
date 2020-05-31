@@ -42,5 +42,5 @@ k=loading_key()
 #Ask user for filename
 print("Enter file name with file type: ")
 file=input()
-#switch encrypt with decrypt
+#switch encrypt with decrypt to decrypt
 encrypt_file(file,k)
