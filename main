@@ -36,6 +36,7 @@ def decrypt_file(filename,k):
 #Generating and Loading the key
 #key_writing()
 k=loading_key()
-# file name
-file = ""
-decrypt_file(file,k)
+#Ask user for filename
+print("Enter file name with file type: ")
+file=input()
+encrypt_file(file,k)
