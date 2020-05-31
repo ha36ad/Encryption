@@ -1,7 +1,7 @@
 from cryptography.fernet import Fernet
 #Function that writes a key
 def key_writing():
-    #k = key
+    #k = Fernet key
     k = Fernet.generate_key()
     with open("k.key","w+b") as file_k:
         file_k.write(k)
