@@ -34,9 +34,13 @@ def decrypt_file(filename,k):
         file.write(decrypted_contents)
         
 #Generating and Loading the key
+
+#Uncomment key_writing when first generating a key. Comment once again after the first run.
 #key_writing()
+
 k=loading_key()
 #Ask user for filename
 print("Enter file name with file type: ")
 file=input()
+#switch encrypt with decrypt
 encrypt_file(file,k)
