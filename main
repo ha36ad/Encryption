@@ -1,1 +1,41 @@
+from cryptography.fernet import Fernet
+#Function that writes a key
+def key_writing():
+    #k = key
+    k = Fernet.generate_key()
+    with open("k.key","w+b") as file_k:
+        file_k.write(k)
+        
+#Function that loads the key from the directory "k.key"
+def loading_key():   
+    return open("k.key", "r+b").read()
 
+#File Encryption Function, needs the filename in the form of a string and key in bytes
+def encrypt_file (filename, k):
+    f=Fernet(k)
+    with open(filename, "r+b") as file:
+#reading the file's contents
+        file_contents= file.read()
+#encryption of the contents
+        encrypted_contents = f.encrypt(file_contents)
+#writing the encrypted file
+    with open(filename, "w+b") as file:
+         file.write(encrypted_contents)
+    
+#Function to Decrypt the data
+def decrypt_file(filename,k):
+    f=Fernet(k)
+    #reading of the file
+    with open(filename,"r+b") as file:
+        encrypted_contents=file.read()
+#decrypting the contents
+    decrypted_contents=f.decrypt(encrypted_contents)
+    with open(filename,"r+b") as file:
+        file.write(decrypted_contents)
+        
+#Generating and Loading the key
+#key_writing()
+k=loading_key()
+# file name
+file = ""
+decrypt_file(file,k)
