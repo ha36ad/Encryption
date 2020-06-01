@@ -44,3 +44,11 @@ print("Enter file name with file type: ")
 file=input()
 #switch encrypt with decrypt to decrypt
 encrypt_file(file,k)
+
+#Ask user whether they want to encrypt or decrypt
+print("Encrypt or Decrypt (encrypt or decrypt)?: ")
+function = input()
+if function == "encrypt":
+    encrypt_file(file,k)
+elif function == "decrypt":
+    decrypt_file(file,k)
