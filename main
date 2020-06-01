@@ -1,4 +1,8 @@
 from cryptography.fernet import Fernet
+
+#variable that is used for the loop
+X=0
+
 #Function that writes a key
 def key_writing():
     #k = Fernet key
@@ -37,18 +41,18 @@ def decrypt_file(filename,k):
 
 #Uncomment key_writing when first generating a key. Comment once again after the first run.
 #key_writing()
-
 k=loading_key()
 #Ask user for filename
-print("Enter file name with file type: ")
-file=input()
-#switch encrypt with decrypt to decrypt
-encrypt_file(file,k)
+print("Enter file name with file type (.txt,.doc,.csv,etc.): ")
+file = input()
 
-#Ask user whether they want to encrypt or decrypt
-print("Encrypt or Decrypt (encrypt or decrypt)?: ")
-function = input()
-if function == "encrypt":
-    encrypt_file(file,k)
-elif function == "decrypt":
-    decrypt_file(file,k)
+#check if the user has entered a valid response
+while X == 0:
+    print("Encrypt or Decrypt (encrypt or decrypt)?: ")
+    function = input()
+    if function == "encrypt":
+        encrypt_file(file,k)
+        break
+    elif function == "decrypt":
+        decrypt_file(file,k)
+        break
