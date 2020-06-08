@@ -38,6 +38,14 @@ def convert_binary (message):
 #ask the user for the image that is used to hide the message
 image = input("Write the name of the image that is being used: ")
 
+#creating the secret image
+secret_image = lsb.hide (path, message)
+#saving the image
+secret_image.save(message)
+
+#reveal the message
+print(lsb.reveal(path))
+
 #decrypt the AES message
 decrypted = f.decrypt(encrypted)
 #convert back to string
