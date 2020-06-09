@@ -27,6 +27,14 @@ encrypted = f.encrypt(encrypted_message)
 #ask the user for the image that is used to hide the message
 image = input("Write the name of the image that is being used: ")
 
+#Finding the image
+def file_search(file_name, search_path):
+    result = []
+    for root, dir, files in os.walk(search_path):
+        if file_name in files:
+            result.append(os.path.join(root , file_name))
+        return result
+   
 #creating the secret image
 secret_image = lsb.hide (path, encrypted)
 #saving the image
