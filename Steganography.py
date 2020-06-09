@@ -25,10 +25,10 @@ f = Fernet(k)
 encrypted = f.encrypt(encrypted_message)
    
 #ask the user for the image that is used to hide the message
-image = input("Write the name of the image that is being used: ")
+image = input("Write the name and type of the image that is being used: ")
 
 #Finding the image
-def file_search(file_name, search_path):
+def file_search(image, search_path):
     result = []
     for root, dir, files in os.walk(search_path):
         if file_name in files:
@@ -36,7 +36,7 @@ def file_search(file_name, search_path):
         return result
    
 #creating the secret image
-secret_image = lsb.hide (path, encrypted)
+secret_image = lsb.hide (return, encrypted)
 #saving the image
 secret_image.save(message)
 
