@@ -33,7 +33,7 @@ secret_image = lsb.hide (path, encrypted)
 secret_image.save(message)
 
 #reveal the message
-print(lsb.reveal(path))
+lsb.reveal(path)
 
 #decrypt the AES message
 decrypted = f.decrypt(encrypted)
