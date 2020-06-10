@@ -24,24 +24,25 @@ encrypted_message = message.encode()
 f = Fernet(k)
 encrypted = f.encrypt(encrypted_message)
    
-#ask the user for the image that is used to hide the message
+#ask the user for the image and its path that is used to hide the message
 image = input("Write the name and type of the image that is being used: ")
+search_path = input("Which drive is the file located in?: ")
 
 #Finding the image
 def file_search(image, search_path):
     result = []
     for root, dir, files in os.walk(search_path):
         if file_name in files:
-            result.append(os.path.join(root , file_name))
+            result.append(os.path.join(root , image))
         return result
    
 #creating the secret image
-secret_image = lsb.hide (return, encrypted)
+secret_image = lsb.hide (result, encrypted)
 #saving the image
-secret_image.save(message)
+secret_image.save("secret.png")
 
 #reveal the message
-lsb.reveal(path)
+lsb.reveal("secret.png")
 
 #decrypt the AES message
 decrypted = f.decrypt(encrypted)
