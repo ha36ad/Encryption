@@ -1,6 +1,6 @@
 from stegano import lsb, lsbset
 from stegano.lsbset import generators
-import os
+from pathlib import Path
 from cryptography.fernet import Fernet
         
 #ask the user for the message that is encrypted
@@ -30,12 +30,12 @@ search_path = input("Which drive is the file located in?: ")
 
 #Finding the image
 def file_search(image, search_path):
-    result = []
-    for root, dir, files in os.walk(search_path):
-        if file_name in files:
-            result.append(os.path.join(root , image))
-        return result
-   
+ data_folder = Path(search_path)
+ file_open = data_folder / image
+ f = open(file_open)
+#Calling the function
+file_search(image, search_path)
+
 #creating the secret image
 secret_image = lsb.hide (result, encrypted)
 #saving the image
