@@ -35,9 +35,10 @@ def file_search(image, search_path):
  f = open(file_open)
 #Calling the function
 file_search(image, search_path)
+file_open = data_folder / image
 
 #creating the secret image
-secret_image = lsb.hide (result, encrypted)
+secret_image = lsb.hide (file_open, encrypted)
 #saving the image
 secret_image.save("secret.png")
 
