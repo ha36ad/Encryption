@@ -13,7 +13,7 @@ key = int(input("Enter the shift value (negative for left, postive for right): "
 encrypted_text = ""
 for i in message:
     if  i in upper_case:
-     encrypted_text += (upper_case[(upper_case.index(i) +  10 - 26)])
+     encrypted_text += (upper_case[(upper_case.index(i) +  key - 26)])
      
     elif i in lower_case:
         encrypted_text += (lower_case[(lower_case.index(i) + key - 26)])
